@@ -13,7 +13,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, TextAreaField, BooleanField, validators, ValidationError
 
 # This is manadatory to create gorillaml plugins. Dont change this variable name else plugin will not work
-gorillaml = Blueprint('simple_dashboard', __name__, url_prefix='/simple_dashboard', template_folder='templates', static_folder='static')
+gorillaml = Blueprint('simple_dashboard', __name__, url_prefix='/simple_dashboard', 
+                      template_folder='templates', static_folder='static')
 
 class SimpleDashboardForm(FlaskForm):
     """
