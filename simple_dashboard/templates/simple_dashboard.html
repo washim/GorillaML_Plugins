@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        {{ widget.gbox(title='New Orders', value=120, icon_class='fas fa-plug nav-icon', type='bg-info', url='#', footer='More info') }}
+        {{ widget.gbox(title='Bounce Rate', value='58%', icon_class='fas fa-cash-register nav-icon', type='bg-warning', url='#', footer='More info') }}
+        {{ widget.gbox(title='Risk Factors', value='88%', icon_class='fas fa-upload nav-icon', type='bg-danger', url='#', footer='More info') }}
+        {{ widget.gbox(title='Income', value='60%', icon_class='fas fa-compress nav-icon', type='bg-success', url='#', footer='More info') }}
+    </div>
+    <div class="row">
+    {% call widget.gcard(title='Lorem Ipsum', class='col-md-6') %}
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    {% endcall %}
+    {% call widget.gcard(title='Lorem Ipsum', class='col-md-6', type='card-info') %}
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    {% endcall %}
+    </div>
+    <div class="row">
+        {% call widget.gcard(title='Simple Table', body_class='p-0') %}
+            {%
+                set rows = [
+                    {
+                        'title':'Sample dasboard',
+                        'version': 1.12
+                    },
+                    {
+                        'title':'Sample dasboard1',
+                        'version': 1.15
+                    }
+                ]
+            %}
+            {{ widget.gtable(fields=['title','version'], rows=rows) }}
+        {% endcall %}
+    </div>
+    <div class="row">
+        {% set footer %}
+        <button type="Create" class="btn btn-primary" frmtarget="#form_simple_dashboard">Submit</button>
+        {% endset %}
+    
+        {% call widget.gcard(title='Simple Form', footer=footer) %}
+        {{ widget.gform('form_simple_dashboard', url_for('simple_dashboard.index'), form, ['string_field','select_field','textarea_field','boolean_field']) }}
+        {% endcall %}
+    </div>
+{% endblock %}
