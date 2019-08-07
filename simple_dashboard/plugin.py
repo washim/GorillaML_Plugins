@@ -6,11 +6,11 @@ For more details start reading https://flask.palletsprojects.com/en/1.1.x/bluepr
 """
 
 from flask import (
-    request, Blueprint, render_template, flash, redirect, url_for
+    Blueprint, render_template, flash, redirect, url_for
 )
 from gorillaml.lab import authorize
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField, BooleanField, validators, ValidationError
+from wtforms import StringField, SelectField, TextAreaField, BooleanField, validators
 
 # This is manadatory to create gorillaml plugins. Dont change this variable name else plugin will not work
 gorillaml = Blueprint('simple_dashboard', __name__, url_prefix='/simple_dashboard', 
@@ -38,4 +38,4 @@ def index():
 
         return redirect(url_for('simple_dashboard.index'))
     
-    return render_template('simple_dashboard.html', form=form)
+    return render_template('index.html', form=form)
