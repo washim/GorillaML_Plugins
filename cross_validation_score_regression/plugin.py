@@ -35,17 +35,17 @@ class RegressionCrossValidationForm(FlaskForm):
     """
     algo_choices = [
         ('LinearRegression', 'LinearRegression'), 
-        ('LASSO', 'LASSO'), ('ElasticNet','ElasticNet'), ('KNeighborsRegressor','KNeighborsRegressor'), 
-        ('DecisionTreeRegressor','DecisionTreeRegressor'), ('SupportVectorRegressor','SupportVectorRegressor')
+        ('LASSO', 'LASSO'), ('ElasticNet','ElasticNet'), ('KNNRegressor','KNeighborsRegressor'),
+        ('DecisionTreeRegressor','DecisionTreeRegressor'), ('SVR','SupportVectorRegressor')
     ]
     regression_scoring_choices = [
         ('explained_variance','explained_variance'), ('max_error','max_error'), ('neg_mean_absolute_error','neg_mean_absolute_error'), 
-        ('neg_mean_squared_error','neg_mean_squared_error'), ('neg_median_absolute_error','neg_median_absolute_error')
+        ('neg_mean_squared_error','neg_mean_squared_error'), ('neg_median_absolute_error','neg_median_absolute_error'), ('r2','r2')
     ]
-    split_size = FloatField('Test validation size', [validators.DataRequired()])
-    kfold = IntegerField('K Fold split size', [validators.DataRequired()])
-    algo = SelectMultipleField('Choose model to compare', [validators.DataRequired()], choices=algo_choices)
-    regression_scoring = SelectField('Regression Scoring Parameter', [validators.DataRequired()], choices=regression_scoring_choices)
+    split_size = FloatField('Test validation size', [validators.DataRequired()], default=0.2)
+    kfold = IntegerField('K Fold split size', [validators.DataRequired()], default=7)
+    algo = SelectMultipleField('Choose model to compare', [validators.DataRequired()], choices=algo_choices, default=['LinearRegression','LASSO','ElasticNet','KNNRegressor','DecisionTreeRegressor','SVR'])
+    regression_scoring = SelectField('Regression Scoring Parameter', [validators.DataRequired()], choices=regression_scoring_choices, default='r2')
 
 @gorillaml.route('/', methods=['GET', 'POST'])
 @authorize
@@ -73,11 +73,11 @@ def index():
                 models.append((model, Lasso()))
             elif model == 'ElasticNet':
                 models.append((model, ElasticNet()))
-            elif model == 'KNeighborsRegressor':
+            elif model == 'KNNRegressor':
                 models.append((model, KNeighborsRegressor()))
             elif model == 'DecisionTreeRegressor':
                 models.append((model, DecisionTreeRegressor()))
-            elif model == 'SupportVectorRegressor':
+            elif model == 'SVR':
                 models.append((model, SVR()))
         results = []
         names = []
