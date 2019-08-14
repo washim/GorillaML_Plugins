@@ -3,13 +3,13 @@
 {% block content %}
     <div class="row">
         {% set footer %}
-        <button type="submit" class="btn btn-primary" frmtarget="#form_cross_validation_regression">Compare</button>
+        <button type="submit" class="btn btn-primary" frmtarget="#form_cross_validation">Compare</button>
         {% endset %}
         {% call widget.gcard(title='Regression cross validation form', class='col-md-6', footer=footer) %}
-        {{ widget.gform('form_cross_validation_regression', url_for('cross_validation_score_regression.index'), form, ['split_size','kfold','algo', 'regression_scoring']) }}
+        {{ widget.gform('form_cross_validation', url_for('cross_validation_score.regression'), form, ['kfold','algo', 'scoring']) }}
         {% endcall %}
 
-        {% call widget.gcard(title='Comparison result', class='col-md-6') %}
+        {% call widget.gcard(title='Regression algorithm comparison result', class='col-md-6') %}
         {% if models_data|length %}
         {% for item in models_data %}
         <div>{{item}}</div>

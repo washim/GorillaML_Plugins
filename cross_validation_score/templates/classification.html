@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        {% set footer %}
+        <button type="submit" class="btn btn-primary" frmtarget="#form_cross_validation">Compare</button>
+        {% endset %}
+        {% call widget.gcard(title='Classification cross validation', class='col-md-6', footer=footer) %}
+        {{ widget.gform('form_cross_validation', url_for('cross_validation_score.classification'), form, ['kfold','algo', 'scoring']) }}
+        {% endcall %}
+
+        {% call widget.gcard(title='Classification algorithm comparison result', class='col-md-6') %}
+        {% if models_data|length %}
+        {% for item in models_data %}
+        <div>{{item}}</div>
+        {% endfor %}
+        <div>{{plot_html|safe}}</div>
+        {% else %}
+        please fill the forms below.
+        {% endif %}
+        {% endcall %}
+    </div>
+{% endblock %}
