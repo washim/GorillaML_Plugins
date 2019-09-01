@@ -30,7 +30,7 @@ gorillaml = Blueprint('cross_validation_score', __name__, url_prefix='/cross_val
 @gorillaml.route('/', methods=['GET', 'POST'])
 @authorize
 def index():
-    return render_template('index.html')
+    return render_template('cross_validation_score_index.html')
 
 
 @gorillaml.route('/regression', methods=['GET', 'POST'])
@@ -82,7 +82,7 @@ def regression():
         ax.set_xticklabels(names)
         plot_html = fig_to_html(fig)
     
-    return render_template('regression.html', form=form, models_data=models_data, plot_html=plot_html)
+    return render_template('cross_validation_score_regression.html', form=form, models_data=models_data, plot_html=plot_html)
 
 
 @gorillaml.route('/classification', methods=['GET', 'POST'])
@@ -134,4 +134,4 @@ def classification():
         ax.set_xticklabels(names)
         plot_html = fig_to_html(fig)
 
-    return render_template('classification.html', form=form, models_data=models_data, plot_html=plot_html)
+    return render_template('cross_validation_score_classification.html', form=form, models_data=models_data, plot_html=plot_html)

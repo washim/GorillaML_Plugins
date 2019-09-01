@@ -38,4 +38,4 @@ def index():
 
         return redirect(url_for('simple_dashboard.index'))
     
-    return render_template('regression.html', form=form)
+    return render_template('simple_dashboard_index.html', form=form)
