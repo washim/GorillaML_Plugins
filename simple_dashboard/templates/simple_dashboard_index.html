@@ -33,12 +33,6 @@
         {% endcall %}
     </div>
     <div class="row">
-        {% set footer %}
-        <button type="Create" class="btn btn-primary" frmtarget="#form_simple_dashboard">Submit</button>
-        {% endset %}
-    
-        {% call widget.gcard(title='Simple Form', footer=footer) %}
-        {{ widget.gform('form_simple_dashboard', form, ['string_field','select_field','textarea_field','boolean_field']) }}
-        {% endcall %}
+        {{ widget.gorillaml_custom_form(metadata) }}
     </div>
 {% endblock %}

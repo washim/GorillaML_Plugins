@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, SelectField, SelectMultipleField, validators
+from wtforms import IntegerField, SelectField, SelectMultipleField, SubmitField, validators
 
 
 class RegressionCrossValidationForm(FlaskForm):
@@ -18,6 +18,7 @@ class RegressionCrossValidationForm(FlaskForm):
     kfold = IntegerField('K Fold split size', [validators.DataRequired()], default=7)
     algo = SelectMultipleField('Choose model to compare', [validators.DataRequired()], choices=algo_choices, default=['LR','LASSO','EN','KNN','DTR','SVR'])
     scoring = SelectField('Regression Scoring Parameter', [validators.DataRequired()], choices=scoring_choices, default='r2')
+    submit = SubmitField('Compare')
 
 class ClassificationCrossValidationForm(FlaskForm):
     algo_choices = [
@@ -35,3 +36,4 @@ class ClassificationCrossValidationForm(FlaskForm):
     kfold = IntegerField('K Fold split size', [validators.DataRequired()], default=10)
     algo = SelectMultipleField('Choose model to compare', [validators.DataRequired()], choices=algo_choices, default=['LR', 'LDA', 'KNN', 'CART', 'NB', 'SVM'])
     scoring = SelectField('Regression Scoring Parameter', [validators.DataRequired()], choices=scoring_choices, default='roc_auc')
+    submit = SubmitField('Compare')

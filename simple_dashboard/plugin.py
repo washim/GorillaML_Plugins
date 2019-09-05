@@ -10,7 +10,7 @@ from flask import (
 )
 from gorillaml.lab import authorize
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField, BooleanField, validators
+from wtforms import StringField, SelectField, TextAreaField, BooleanField, SubmitField, validators
 
 # This is manadatory to create gorillaml plugins. Dont change this variable name else plugin will not work
 gorillaml = Blueprint('simple_dashboard', __name__, url_prefix='/simple_dashboard', 
@@ -24,6 +24,7 @@ class SimpleDashboardForm(FlaskForm):
     select_field = SelectField('SelectField', choices=[('enabled', 'Enable'), ('disabled', 'Disable')])
     textarea_field = TextAreaField('TextAreaField', [validators.DataRequired()])
     boolean_field = BooleanField('BooleanField')
+    submit = SubmitField('Save')
 
 @gorillaml.route('/', methods=['GET', 'POST'])
 @authorize
@@ -37,5 +38,21 @@ def index():
         flash('Your error message','error')
 
         return redirect(url_for('simple_dashboard.index'))
-    
-    return render_template('simple_dashboard_index.html', form=form)
+
+    metadata = {
+        'info': {
+            'title': 'Simple Form',
+            'class': 'col-md-12',
+            'body_class': None,
+            'type': None
+        },
+        'form_data': {
+            'form_id': 'form_simple_dashboard',
+            'form': form,
+            'method': 'POST',
+            'encryption': None,
+            'extra': None
+        }
+    }
+
+    return render_template('simple_dashboard_index.html', metadata=metadata)

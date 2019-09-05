@@ -2,12 +2,7 @@
 
 {% block content %}
     <div class="row">
-        {% set footer %}
-        <button type="submit" class="btn btn-primary" frmtarget="#form_cross_validation">Compare</button>
-        {% endset %}
-        {% call widget.gcard(title='Classification cross validation', class='col-md-6', footer=footer) %}
-        {{ widget.gform('form_cross_validation', form, ['kfold','algo', 'scoring']) }}
-        {% endcall %}
+        {{ widget.gorillaml_custom_form(metadata) }}
 
         {% call widget.gcard(title='Classification algorithm comparison result', class='col-md-6') %}
         {% if models_data|length %}

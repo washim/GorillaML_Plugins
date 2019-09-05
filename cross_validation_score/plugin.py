@@ -81,8 +81,24 @@ def regression():
         pyplot.subplots_adjust(bottom=0.2)
         ax.set_xticklabels(names)
         plot_html = fig_to_html(fig)
-    
-    return render_template('cross_validation_score_regression.html', form=form, models_data=models_data, plot_html=plot_html)
+
+    metadata = {
+        'info': {
+            'title': 'Regression cross validation form',
+            'class': 'col-md-6',
+            'body_class': None,
+            'type': None
+        },
+        'form_data': {
+            'form_id': 'form_cross_validation',
+            'form': form,
+            'method': 'POST',
+            'encryption': None,
+            'extra': None
+        }
+    }
+
+    return render_template('cross_validation_score_regression.html', metadata=metadata, models_data=models_data, plot_html=plot_html)
 
 
 @gorillaml.route('/classification', methods=['GET', 'POST'])
@@ -134,4 +150,20 @@ def classification():
         ax.set_xticklabels(names)
         plot_html = fig_to_html(fig)
 
-    return render_template('cross_validation_score_classification.html', form=form, models_data=models_data, plot_html=plot_html)
+    metadata = {
+        'info': {
+            'title': 'Classification cross validation',
+            'class': 'col-md-6',
+            'body_class': None,
+            'type': None
+        },
+        'form_data': {
+            'form_id': 'form_cross_validation',
+            'form': form,
+            'method': 'POST',
+            'encryption': None,
+            'extra': None
+        }
+    }
+
+    return render_template('cross_validation_score_classification.html', metadata=metadata, models_data=models_data, plot_html=plot_html)
