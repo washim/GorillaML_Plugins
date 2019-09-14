@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'GorillaML'
+project = 'GorillaML Plugins'
 copyright = '2019, Washim Ahmed'
 author = 'Washim Ahmed'
 
