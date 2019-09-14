@@ -22,15 +22,23 @@ After installation to initialized the application database we have to run below 
 
 .. warning:: Dont ignore or forget to run this command or else application stop working properly.
 
-Start Application Server
+Start Application in Desktop
+=====================================
+If it is installed on personal desktop based environment then to start GorillaML server, run below command in terminal..
+
+.. code-block:: shell
+
+    gorillaml-canvas gui
+
+Start Application Server in private cloud
 =====================================
 To start GorillaML server run below command in terminal
 
 .. code-block:: shell
 
-    gorillaml-forever
+    gorillaml-canvas start-forever
 
-It will expose the application in http://127.0.0.1:5000
+It will expose the application in http://localhost:5000
 
 Application Login
 =====================================
