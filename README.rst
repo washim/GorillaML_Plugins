@@ -1,6 +1,6 @@
-Welcome to GorillaML's documentation!
+Welcome to GorillaML's plugins development documentation!
 =====================================
-This is the application which allow individual, organization, developer, publisher to manage, publish, monitor webservices, machine learning api, custom forms and many more active development very easily.
+GorillaML is the analytical tools which allow individual, organization, developer, publisher to present, manage, publish their architectural design, machine learning api, custom forms and many more active development very easily.
 
 Installation
 =====================================
