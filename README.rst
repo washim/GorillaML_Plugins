@@ -2,10 +2,6 @@ Welcome to GorillaML's documentation!
 =====================================
 This is the analytical tools which allow individual, organization, developer, publisher to present, manage, publish their architectural design, machine learning api, custom form builder for input data capturing, live code editor and many more active development very easily.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 Installation
 =====================================
 .. code-block:: shell
