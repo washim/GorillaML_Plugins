@@ -1,10 +1,14 @@
-Welcome to GorillaML's plugins development documentation!
+Welcome to GorillaML's documentation!
 =====================================
-GorillaML is the analytical tools which allow individual, organization, developer, publisher to present, manage, publish their architectural design, machine learning api, custom forms and many more active development very easily.
+This is the analytical tools which allow individual, organization, developer, publisher to present, manage, publish their architectural design, machine learning api, custom form builder for input data capturing, live code editor and many more active development very easily.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
 
 Installation
 =====================================
-.. code-block:: python
+.. code-block:: shell
 
     pip install gorillaml
 
@@ -12,21 +16,29 @@ DB Initialization
 =====================================
 After installation to initialized the application database we have to run below command in console.
 
-.. code-block:: python
+.. code-block:: shell
 
     gorillaml-canvas init-db
 
 .. warning:: Dont ignore or forget to run this command or else application stop working properly.
 
-Start Application Server
+Start Application in Desktop
+=====================================
+If it is installed on personal desktop based environment then to start GorillaML server, run below command in terminal..
+
+.. code-block:: shell
+
+    gorillaml-canvas gui
+
+Start Application Server in private cloud
 =====================================
 To start GorillaML server run below command in terminal
 
-.. code-block:: python
+.. code-block:: shell
 
     gorillaml-canvas start-forever
 
-It will expose the application in http://127.0.0.1:5000
+It will expose the application in http://localhost:5000
 
 Application Login
 =====================================
