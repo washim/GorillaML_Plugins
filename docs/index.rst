@@ -19,6 +19,8 @@ After installation to initialized the application database we have to run below 
 .. code-block:: shell
 
     gorillaml-canvas init-db
+    
+If facing any issue due to already existing db drop it from ``/installed_location/Anaconda3/var/``
 
 .. warning:: Dont ignore or forget to run this command or else application stop working properly.
 
@@ -52,3 +54,11 @@ GorillaML is created on top of Flask framework and this plugins are created base
 You will found sample plugins here https://github.com/washim/GorillaML_Plugins
 
 .. warning:: Plugin name and blueprint name should be same inside plugin.py. This **plugin.py** and **__init__.py** is the mandatory to create gorillaml plugins. Dont change **gorillaml** variable inside plugin.py
+
+DB Update
+=====================================
+This is recommended to execute below command always after installing new release.
+
+.. code-block:: shell
+
+    gorillaml-canvas db-update
