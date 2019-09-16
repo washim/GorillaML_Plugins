@@ -20,7 +20,7 @@ After installation to initialized the application database we have to run below 
 
     gorillaml-canvas init-db
     
-If facing any issue due to already existing db drop it from ``/installed_location/Anaconda3/var/`` and then try above command.
+.. note:: If facing any issue due to already existing db drop it from ``/installed_location/Anaconda3/var/`` and then try above command.
 
 .. warning:: Dont ignore or forget to run this command or else application stop working properly.
 
